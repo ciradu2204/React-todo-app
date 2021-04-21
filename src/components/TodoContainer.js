@@ -4,9 +4,6 @@ import Header from "./Header";
 import InputTodo from "./InputTodo";
 import { v4 as uuidv4 } from "uuid";
 
-
-
-
 const  TodoContainer =()  => {
     const [todos, setTodos] = useState(getInitialTodos())
     const handleChange = (id) => {
@@ -87,7 +84,6 @@ const  TodoContainer =()  => {
              <Header />
                     <InputTodo
                         addTodoProps={addTodoItem} />
-
                     <TodosList
                         todos={todos}
                         handleChangeProps={handleChange}
