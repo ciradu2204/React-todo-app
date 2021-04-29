@@ -4,8 +4,20 @@ import Header from "./Header";
 import InputTodo from "./InputTodo";
 import { v4 as uuidv4 } from "uuid";
 
-const  TodoContainer =()  => {
-    const [todos, setTodos] = useState(getInitialTodos())
+const TodoContainer = () => {
+
+    const getInitialTodos = () => {
+        //getting storedItems
+        const temp = localStorage.getItem("todos")
+        const savedTodos = JSON.parse(temp)
+        let res = [];
+        for (var i in savedTodos) {
+            res.push(savedTodos[i]);
+        }
+        return res || []
+    }
+    const [todos, setTodos] = useState(getInitialTodos());
+
     const handleChange = (id) => {
         setTodos(prevState => 
              prevState.map(todo => {
@@ -38,14 +50,10 @@ const  TodoContainer =()  => {
     };
 
     const delTodo = id => {
-        setTodos({
-           
-                ...todos.filter(todo => {
-                    return todo.id !== id; 
-                })
-
-            
-        })
+         
+        const result = todos.filter(todo => todo.id !== id);
+        setTodos(result)
+     
     }
 
     const setUpdate = (updatedTitle, id) => {
@@ -65,17 +73,7 @@ const  TodoContainer =()  => {
         localStorage.setItem("todos", temp)
     }, [todos])
 
-    function getInitialTodos() {
-       //getting storedItems
-        const temp = localStorage.getItem("todos")
-        const savedTodos = JSON.parse(temp)
-        let res = [];
-        for (var i in savedTodos) {
-            res.push(savedTodos[i]);
-        }
-        return res || []
-    }
-
+ 
     return (
 
     
@@ -85,10 +83,11 @@ const  TodoContainer =()  => {
                     <InputTodo
                         addTodoProps={addTodoItem} />
                     <TodosList
-                        todos={todos}
-                        handleChangeProps={handleChange}
-                        deleteTodoProps={delTodo}
-                        setUpdate={setUpdate} />
+                    todos={todos}
+                    handleChangeProps={handleChange}
+                    deleteTodoProps={delTodo}
+                    setUpdate={setUpdate}
+                />
              </div>
             </div>
     

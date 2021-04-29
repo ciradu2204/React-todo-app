@@ -1,9 +1,10 @@
 import React, { useState, useEffect} from "react"
 import styles from "./TodoItem.module.css"
 import { FaTrash } from "react-icons/fa"
+import { FaRegEdit } from "react-icons/fa"
 
 
-const TodoItem = props =>{
+const TodoItem = props => {
 
     const [editing, setEditing] = useState(false);
 
@@ -38,23 +39,23 @@ const TodoItem = props =>{
     } else {
         editMode.display = "none";
     }
-
-    useEffect(() => {
-        return () => {
-            console.log("cleaning up...")
-        }
-    }, [])
   
       
         return (
             <li className={styles.item}>
-                <div onDoubleClick={handleEditing} style={viewMode}>
+                <div  style={viewMode}>
                     <input type="checkbox" checked={completed} onChange={() => props.handleChangeProps(id)} />
+                    <button onClick={handleEditing} >
+                        <FaRegEdit 
+                            style={{ color: "orangered", fontSize: "16px" }}
+
+                        />
+                    </button>
                     <button onClick={() => props.deleteTodoProps(id)}>
                         <FaTrash
                             style={{ color: "orangered", fontSize: "16px" }}
                         />
-                 </button>
+                    </button>
                     <span style={completed ? completedStyle : unCompletedStyle}>
                         {title}
                     </span>
