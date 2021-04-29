@@ -1,10 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\src",
-    "\\src\\functionBased",
-    "\\src\\functionBased\\components"
+    "\\build",
+    "\\build\\static",
+    "\\static\\css",
+    "\\static\\js"
   ],
-  "SelectedNode": "\\src\\functionBased\\components\\Navbar.js",
   "PreviewInSolutionExplorer": false
 }
