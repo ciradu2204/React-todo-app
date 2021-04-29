@@ -2,7 +2,7 @@
   "name": "react-todo-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/ciradu2204/React-todo-app",
+  "homepage": "https://ciradu2204.github.io/React-todo-app",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
