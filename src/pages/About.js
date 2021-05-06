@@ -1,11 +1,12 @@
 import React from 'react';
-//Provides access to the match object to create dynamic routing
+//Provides access to the match object to achieve nested and dynamic routing
 import { Link, useRouteMatch, Route } from "react-router-dom";
-import SinglePage from "./SinglePage"
+import SinglePage from "./SinglePage";
 
+const About = () => {
 
-const About = props => {
-    const { url, path } = useRouteMatch()
+    //destructuring the useRouteMatch()
+    const { url, path } = useRouteMatch();
 
     return (
         <div className="about__content">

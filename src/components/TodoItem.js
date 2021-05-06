@@ -6,18 +6,22 @@ import { FaRegEdit } from "react-icons/fa"
 
 const TodoItem = props => {
 
+    // Editing state
     const [editing, setEditing] = useState(false);
 
+   //When the edit button is clicked, the editing state is set to true.
     const handleEditing = () => {
         setEditing(true)
     }
 
+    //When a user press the enter key, the editing state is set to false.
     const handleUpdatedDone = event => {
         if (event.key === "Enter") {
             setEditing(false)
         }
     }
 
+    //When the item is completed, the title will have this style.
     const completedStyle = {
         fontStyle: "Italic",
         color: "#595959",
@@ -26,23 +30,29 @@ const TodoItem = props => {
         textDecoration: "line-through",
     }
 
+    //When the item is unchecked, the title will have this style. 
     const unCompletedStyle = {
         paddingLeft: 15,
     }
+
+    //Destructuring the todo item
     const { completed, id, title } = props.todo
 
+    // The different mode style
     let viewMode = {}
     let editMode = {}
 
+    //When editing state is true, the view mode will not be displayed. Otherwise, it will be displayed.
     if (editing) {
         viewMode.display = "none";
     } else {
         editMode.display = "none";
     }
 
+
     useEffect(() =>{
         return (
-            console.log("Cleaningg")
+            console.log("Cleaning")
             
      )
     })
@@ -50,9 +60,9 @@ const TodoItem = props => {
       
         return (
             <li className={styles.item}>
-                <div  style={viewMode}>
+                 <div  style={viewMode}>
                     <input type="checkbox" checked={completed} onChange={() => props.handleChangeProps(id)} />
-                    <button onClick={handleEditing} >
+                    <button onClick={handleEditing}>
                         <FaRegEdit 
                             style={{ color: "orangered", fontSize: "16px" }}
 
@@ -67,6 +77,7 @@ const TodoItem = props => {
                         {title}
                     </span>
                 </div>
+
                 <input
                     type="text"
                     style={editMode}

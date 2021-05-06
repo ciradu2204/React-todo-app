@@ -2,6 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 
 const SinglePage = () => {
+    // About page Data 
     const aboutData = [
         {
             slug: "about-app",
@@ -17,8 +18,13 @@ const SinglePage = () => {
         },
     ]
 
+    // Get the relative path(slug)
     const { slug } = useParams()
+
+    //Get the content based on the collected slug
     const aboutContent = aboutData.find(item => item.slug === slug)
+
+    //destructure the aboutContent
     const { title, description } = aboutContent
 
     return (
