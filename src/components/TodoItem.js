@@ -39,6 +39,13 @@ const TodoItem = props => {
     } else {
         editMode.display = "none";
     }
+
+    useEffect(() =>{
+        return (
+            console.log("Cleaningg")
+            
+     )
+    })
   
       
         return (
