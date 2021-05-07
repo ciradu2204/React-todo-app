@@ -1,4 +1,4 @@
-# A To-do app developed using React.js
+# A To-do app developed using React JS
 
 In this app, you can add, delete, submit and edit items. To edit items,
 simply click the edit icon. Once you are done, press the enter key 
